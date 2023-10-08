@@ -21,35 +21,46 @@ const asaderoSchema = mongoose.Schema({
   payment_deadline: {
     type: Date,
   },
-  /*     cartId: {
+/*   cartId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "CartSchema",
+    required: true
+  }, */
+  /*     guests:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Cart",
-        required: true
-    },
-    guests:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "UserSchema",
         required: true
     }, */
 
   /*  QUIZAS ASI PODRIA SER (LO HICE PORQUE NECESITABA
-        CONTROLARLO EN PAYASADERO)
-    guests:[
+        CONTROLARLO EN PAYASADERO)*/
+/*   guests: [
     {
-    user:{
+      user:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "UserSchema",
         required: true
-    },
-    status: {
-      type: String,
-      enum: ['not paid', 'paid', 'paid confirmed'],
-      required: true,
-      default: 'not paid'
-    },
-]
-});
-    */
+      },
+      status: {
+        type: String,
+        enum: ['not paid', 'paid', 'paid confirmed'],
+        required: true,
+        default: 'not paid'
+      },
+/*       paid: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
+      chef: {
+        type: Boolean,
+        required: true,
+        default: false,
+      }, 
+    }
+  ], */
+
+    
 });
 
 const AsaderoSchema = mongoose.model("Asadero", asaderoSchema);

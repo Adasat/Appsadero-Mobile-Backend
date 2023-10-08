@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const express = require('express')
 
 const app = express()
-const router = require('./api/routes')
+const router = require('./api/routes/index')
 const { connectionDB } = require("./db/db");
 
 const start = async() => {
