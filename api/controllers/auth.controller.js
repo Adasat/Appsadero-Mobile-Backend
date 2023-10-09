@@ -1,7 +1,7 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-const User = require("../models/user.model")
+const User = require("../schemas/user.schema")
 
 /*
 Login
@@ -12,14 +12,14 @@ const signUp = async (req, res) => {
   try {
     req.body.password = bcrypt.hashSync(req.body.password, 10);
     const user = await User.create({
-      name: req.body.firstname,
-      nickname: req.body.lastname,
+      name: req.body.name,
+      nickname: req.body.nickname,
       email: req.body.email,
       password: req.body.password,
       role: req.body.role,
     });
     const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
-      expiresIn: "",
+      expiresIn: "1y",
     });
     
 
